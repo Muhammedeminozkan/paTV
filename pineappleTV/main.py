@@ -97,14 +97,14 @@ def videos(category):
 
     # Kategorilere göre videoları listeleme
     if category == 'diziler':
-        videos = os.listdir('static/videos/diziler')  # Diziler klasörü
+        videos = os.listdir('/pineappleTB/static/videos/diziler')  # Diziler klasörü
     elif category == 'filmler':
-        videos = os.listdir('static/videos/filmler')  # Filmler klasörü
+        videos = os.listdir('pineappleTV/static/videos/filmler')  # Filmler klasörü
     else:
         flash('Geçersiz kategori.', 'error')
         return redirect(url_for('index'))
 
-    return render_template('video.html', category=category, videos=videos)
+    return render_template('videos.html', videos=videos)
 
 # Video izleme sayfası
 @app.route('/video/<name>')

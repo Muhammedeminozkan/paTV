@@ -104,7 +104,7 @@ def videos(category):
         flash('Geçersiz kategori.', 'error')
         return redirect(url_for('index'))
 
-    return render_template('videos.html', category=category, videos=videos)
+    return render_template('video.html', category=category, videos=videos)
 
 # Video izleme sayfası
 @app.route('/video/<name>')

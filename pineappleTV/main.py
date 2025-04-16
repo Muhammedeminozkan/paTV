@@ -97,7 +97,7 @@ def videos(category):
 
     # Kategorilere göre videoları listeleme
     if category == 'diziler':
-        videos = os.listdir('/pineappleTB/static/videos/diziler')  # Diziler klasörü
+        videos = os.listdir('pineappleTV/static/videos/diziler')  # Diziler klasörü
     elif category == 'filmler':
         videos = os.listdir('pineappleTV/static/videos/filmler')  # Filmler klasörü
     else:

@@ -3,10 +3,10 @@
 {% block content %}
     <h2>Videolar</h2>
     <div class="video-list">
-        <h1>{{category}}</h1>
-        {% for video in videos %}
+        {% for vid in videos %}
             <div class="video-item">
-                <h1>{{video}}</h1>
+                <a href="url_for('video', category=category, name=vid)">{{vid}}</a>
+                    
             </div>
         {% endfor %}
     </div>

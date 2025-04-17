@@ -22,6 +22,7 @@ def index():
         return render_template('index.html')
     return redirect('/login')
 
+
 # Kullanıcı girişi
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -103,6 +104,7 @@ def videos(category):
     else:
         flash('Geçersiz kategori.', 'error')
         return redirect(url_for('index'))
+    videos.remove('.gitignore')
 
     return render_template('videos.html', videos=videos)
 

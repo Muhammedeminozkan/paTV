@@ -104,22 +104,25 @@ def videos(category):
     else:
         flash('Geçersiz kategori.', 'error')
         return redirect(url_for('index'))
-    videos.remove('.gitignore')
 
-    return render_template('videos.html', videos=videos)
+    if '.gitignore' in videos:
+        videos.remove('.gitignore')
+
+    return render_template('videos.html', videos=videos, category=category)
 
 # Video izleme sayfası
-@app.route('/video/<name>')
-def video(name):
+@app.route('/video/<category>/<name>')
+def video(category, name):
     if 'user' not in session:
         return redirect(url_for('login'))
-    return render_template('video.html', video_name=name)
+    print(f"Category: {category}, Name: {name}")  # Debugging için terminale yazdır
+    return render_template('video.html', video_name=name, category=category)
+
 
 # Videoları akışa sunma
-@app.route('/videos/<filename>')
+@app.route('/videos/<path:filename>')
 def stream_video(filename):
     return send_from_directory('static/videos', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
